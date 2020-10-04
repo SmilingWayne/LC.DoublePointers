@@ -1,0 +1,50 @@
+/* Given an array A of non-negative integers, 
+half of the integers in A are odd, 
+and half of the integers are even.
+Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
+You may return any answer array that satisfies this condition.
+*/
+
+Java.vision1:
+
+class Solution {
+    public int[] sortArrayByParityII(int[] A) {
+        int j = 1;
+        for (int i = 0; i < A.length; i += 2)
+            if (A[i] % 2 == 1) {
+                while (A[j] % 2 == 1)
+                    j += 2;
+                int tmp = A[i];
+                A[i] = A[j];
+                A[j] = tmp;
+            }
+        return A;
+    }
+}
+
+//如果有不满足“序号为偶数的位为偶数的”，那么一定有“序号为奇数的不为奇数”；
+//不需要开辟额外空间//
+
+Java.vision2:(Double Traversals)
+
+class Solution {
+    public int[] sortArrayByParityII(int[] A) {
+        int N = A.length;
+        int[] ans = new int[N];
+
+        int t = 0;
+        for (int x: A) if (x % 2 == 0) {
+            ans[t] = x;
+            t += 2;
+        }
+
+        t = 1;
+        for (int x: A) if (x % 2 == 1) {
+            ans[t] = x;
+            t += 2;
+        }
+
+        return ans;
+    }
+}
+
