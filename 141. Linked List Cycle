@@ -1,7 +1,7 @@
 /*Given head, the head of a linked list, determine if the linked list has a cycle in it.
 */
 
-Java.vision:
+Java.Version:
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -20,7 +20,7 @@ public class Solution {
         ListNode slow = head;
         if(head==null)
         return false;
-        while(fast!=null&&fast.next!=null)
+        while(fast!=null&&fast.next!=null)。 //fast判断放在前面，接下来才是fast.next判断//
         {
             slow = slow.next;
             fast = fast.next.next;
