@@ -1,0 +1,68 @@
+
+Java. Failed Version 1:
+class Solution {
+    public int numberOfSubarrays(int[] nums, int k) {
+        int fast = 0;
+        int slow = 0;
+        int countOdd = 0;
+        int ans = 0;
+        int end_length = -1;
+        int start_point2 = 0;
+        int last_length = -1;
+        int start_point  =  0;
+        boolean flag = false;
+        while(fast < nums.length && slow < nums.length){
+            if(nums[slow]%2 ==0){
+                start_point = slow;
+            }
+            else{
+                flag = true;
+            }
+            while(countOdd ==0 && fast < nums.length && nums[fast]%2 != 1){
+                fast ++;
+                slow ++;
+                if(flag)
+                start_point++;
+            }
+            if(fast<nums.length && nums[fast]%2 == 1 && countOdd < k){
+                end_length = fast - start_point;
+                slow = fast;
+                while(fast < nums.length && countOdd < k){
+                    if(nums[fast]%2!=1){
+                        fast++;
+                    }
+                    else{
+                        countOdd++;
+                        fast++;
+                    }
+                }
+            }
+            if(countOdd == k){
+                start_point2 = fast;
+                fast++;
+                while(fast < nums.length){
+                    if(nums[fast]%2 == 0){
+                        fast++;
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+            else if(countOdd!=k){
+                return ans;
+            }
+            countOdd = 0;
+            last_length = fast - start_point2;
+            fast = slow;
+            ans += (last_length+1)*(end_length+1);
+            last_length = -1;
+            end_length = -1;
+            fast++;
+            slow++;
+            flag = false;
+            
+        }
+        return ans;
+    }
+}
