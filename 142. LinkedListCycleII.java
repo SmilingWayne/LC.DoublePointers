@@ -59,7 +59,7 @@ public class Solution {
  */
  
  
-public class Solution {
+public class Solution2 {
     public ListNode detectCycle(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
@@ -78,4 +78,19 @@ public class Solution {
     }
 }
 
+/*方法三和方法二原理是一样的
+*/
+public class Solution3 {
+    public ListNode detectCycle(ListNode head) {
+        Set<ListNode> set = new HashSet<>();
+        ListNode help = head;
+        while(help != null){
+            if(! set.add(help)){
+                return help;
+            }
+            help = help.next;
+        }
+        return null;
+    }
+}
 //HashTable 
