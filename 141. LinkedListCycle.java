@@ -1,7 +1,8 @@
 /*Given head, the head of a linked list, determine if the linked list has a cycle in it.
+Java.Version:
 */
 
-Java.Version:
+
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -13,7 +14,6 @@ Java.Version:
  *     }
  * }
  */
- 
 public class Solution {
     public boolean hasCycle(ListNode head) {
         ListNode fast = head;
