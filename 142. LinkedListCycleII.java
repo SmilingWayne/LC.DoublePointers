@@ -14,7 +14,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-Java.Version1: //Very Important//
+//Java.Version1: Very Important//
 
 public class Solution {
     public ListNode detectCycle(ListNode head) {
@@ -44,7 +44,7 @@ public class Solution {
     }
 }
 
-Java.Version2:
+//Java.Version2:
 
 /**
  * Definition for singly-linked list.
